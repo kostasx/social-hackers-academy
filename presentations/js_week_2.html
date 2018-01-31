@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Intro -->
+			<div class="slides">
+				<section>
+					<h1>JS week 2</h1>
+					<h3>Social Hackers Academy</h3>
+					<p>
+						<small>Created by <a href="https://www.linkedin.com/in/kpouianou/">Kosmas Pouianou</a> and <a href="www.linkedin.com/in/kostas-minaidis">Kostas Minaidis</a></small>
+					</p>
+				</section>
+
+				<!-- 1: Recap -->
+				<section>
+					<section >
+						<h2>1. Recap: Week 1</h2>
+					</section>
+					<section data-markdown>
+					  <script type="text/template">
+			        #### 1.1 Declaration
+			        ```javascript
+          		let fruit = 'apple';
+          		const num = 10;
+          		```
+					  </script>
+					</section>
+					<section data-markdown>
+					  <script type="text/template">
+			        #### 1.2 Asignment
+			        ```javascript
+          		fruit = 'orange'; // OK
+              let fruit = 'banana'; // error
+              const num = 1; // error
+          		```
+					  </script>
+					</section>
+					<section data-markdown>
+					  <script type="text/template">
+			        #### 1.3 Simple Data Types
+			        ```javascript
+              const fruit = 'banana';
+              const num = 10;
+              const fruitIsRed = false;
+
+              console.log(typeof fruit, typeof num, typeof fruitIsRed);
+              // => string number boolean 
+          		```
+					  </script>
+					</section>
+					<section data-markdown>
+					  <script type="text/template">
+			        #### 1.4 Arrays
+			        ```javascript
+              const fruit = ['banana', 'appple', 'orange'];
+
+              console.log('The first fruit is ' + fruit[0] + ' and the last fruit is ' + fruit[fruit.length - 1]);
+              // => The first fruit is banana and the last fruit is orange
+              fruit
+          		```
+					  </script>
+					</section>
+					<section data-markdown>
+					  <script type="text/template">
+			        #### 1.5 Basic Array Operations
+			        ```javascript
+              const fruit = ['banana', 'appple', 'orange'];
+
+              const lastFruit = fruit.pop();
+
+              const firstFruit = fruit.shift();
+
+              fruit.push('tangerine');
+
+              fruit.unshift('pineapple');
+
+              console.log('The first fruit was ' + firstFruit + ' and the last fruit was ' + lastFruit);
+              // => The first fruit is banana and the last fruit is orange
+
+              console.log('The current fruit are: ' + fruit);
+              // => The current fruit are: ['pineapple', 'appple', 'tangerine']
+          		```
+					  </script>
+					</section>
+					<section data-markdown>
+					  <script type="text/template">
+			        #### 1.6 String & Arithmetical Operators
+			        ```javascript
+              const num = 10;
+              const strNum = '10';
+
+              console.log(num + strNum, num - strNum, 'num' - strNum, (num * 10) / 5);
+              // => 1010 0 NaN 20
+          		```
+					  </script>
+					</section>
+					<section>
+						<h4>1.7.1 Comparison Operators</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Equal (==): <i>True if the operands are equal</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    1 == '1'  // => true
+						    'a' == 'b' // => false
+						    ```
+						  </script>
+						</p>
+						<p style="text-align: left;  margin: 40px 0 20px">
+							<small>Strict Equal (===): <i>True if the operands are equal and of the same type</i></small>
+						</p>
+						<p data-markdown>
+						  <script type="text/template">
+						    ```javascript
+						    1 === '1'  // => false
+						    ```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>1.7.2 Comparison Operators</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Not equal (!=): <i>Returns true if the operands are not equal</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    1 != '1'  // => false
+						    'a' != 'b' // => true
+			        	```
+						  </script>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Strict not equal (!==): <i>Returns true if the operands are of the same type but not equal, or are of different type</i></small>
+						</p>
+						<p data-markdown  style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    1 !== '1'  // => true
+						    1 !== 1 // => false
+						    'a' !== 'b' // => true
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>1.7.3 Comparison Operators</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Greater than (>): <i>True if the left operand is greater than the right operand.</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    1 > '1'  // => false
+						    2 > 1 // => true
+			        	```
+						  </script>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Greater than or equal (>=): <i>True if the left operand is greater than or equal to the right operand</i></small>
+						</p>
+						<p data-markdown  style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    1 >= '1'  // => true
+						    2 >= 1 // => true
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>1.7.4 Comparison Operators</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Less than (>): <i>True if the left operand is less than the right operand.</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    1 < '1'  // => false
+						    1 < 2 // => true
+			        	```
+						  </script>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Less than or equal (>=): <i>True if the left operand is less than or equal to the right operand</i></small>
+						</p>
+						<p data-markdown  style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    1 <= '1'  // => true
+						    1 <= 2 // => true
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>1.8 Logical Operators</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Logical OR (||): <i>Checks whether one of the two operands returns true once they have been evaluated</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						   (5 > 4 + 1) || (2 >= 1 + 1)  // => true
+						    1 === '1' || false // => false
+			        	```
+						  </script>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Logical AND (&&): <i>Checks whether both operands returns true once they have been evaluated</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						   (5 > 4 + 1) && (2 >= 1 + 1)  // => false
+						    1 === '1' && true // => false
+						    (1 <= 2 || 1 === 3) && true || false // => true
+			        	```
+						  </script>
+						</p>
+					</section>
+				</section>
+
+				<!-- 2: Loops & Iteration-->
+				<section>
+					<section>
+						<h4>2. Loops</h4>
+						<p>
+							Loops are a sequence of instructions that are repeated until some condition is met.
+						</p>
+					</section>
+					<section>
+						<h4>2.1 The for loop</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>The for loop is commonly used to repeat a group of instructions a specific number of times.</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						   // example 1
+						   for (let i = 0; i < 10; i++) {
+						   	console.log(i);
+						   }
+
+						   // example 2
+						   const fruits = ['apple', 'orange', 'banana'];
+
+						   for (let i = 0; i < fruit.length; i++) {
+						   	console.log(fruit[i]);
+						   }
+			        	```
+						  </script>
+						</p>
+						<p tyle="text-align: left; margin: 40px 0 20px">
+							<small>For loop exercises: <a href="https://codepen.io/KPouianou/pen/wyaGWa?editors=0011">https://codepen.io/KPouianou/pen/wyaGWa?editors=0011</a></small>
+						</p>
+					</section>
+					<section>
+						<h4>2.2 The while loop</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>The while loop executes it's <i>statements</i> as long as a specified <i>condition</i> evaluates to true. It is commonly used for repeating a group of instructions an unspecified number of times.</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						   // example 1
+						   let i = 0;
+						   while (while i < 10) {
+						   	i++;
+						   	console.log(i);
+						   }
+
+						   // example 2
+						   let j = 0;
+						   const fruits = ['apple', 'orange', 'banana'];
+
+						   while (j < fruit.length - 1) {
+						   	j++;
+						   	console.log(fruit[i]);
+						   }
+			        	```
+						  </script>
+						</p>
+						<p tyle="text-align: left; margin: 40px 0 20px">
+							<small>While loop exercises: <a href="https://codepen.io/KPouianou/pen/wyaGWa?editors=0011">https://codepen.io/KPouianou/pen/VQLaVo?editors=0010</a></small>
+						</p>
+					</section>
+				</section>
+
+				<!-- 3: Functions -->
+				<section>
+					<section>
+						<h4>3.0 Functions</h4>
+						<p>
+							A function is a block of code stored as a value. The type of this value is "function".
+						</p>
+					</section>
+					<section>
+						<h4>3.1 Definition vs declaration</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>A function can be defined as any other variable, through what we call a <i>function expression</i>, or through a <i>function declaration</i>:</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						   // Function declaration
+						   function hi() {
+						   	console.log('Hi');
+						   }
+
+						   // Function expression
+						   var hello = function () {
+						   	console.log('Hello');
+						   }
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>3.2 Execution and the <i>return</i> statement</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Functions are <i>executed</i> when <i>called</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    const greet = function () {
+						    	console.log('Hello');
+						    }
+
+						    const greeting = greet();
+						    console.log(greeting); // => 'Hello'
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>All functions have a return value, which defaults to <i>undefined:</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    function getName () {
+						    	return 'James';
+						    }
+
+						    function greet() {
+						    	console.log('Hello');
+						    }
+
+						    const name = getName();
+
+						    greet(); // => 'Hello'
+						    console.log(name); // => 'James'
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>3.3 Parameters and arguments</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Functions can be <i>passed</i> values as <i>arguments</i> through <i>parameters</i> declared by the function.</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    // a, b are function parameters
+						    function add(a, b) {
+						    	return a + b;
+						    }
+
+						    // 'add' is called with arguments 1, 2
+						    let three = add(1, 2);
+						    console.log(three);
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Functions can have any number of <i>parameters</i>. In JS, we can also pass any number of <i>arguments</i> to a function.</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    function greet(greeting, name, surname) {
+						    	console.log(greeting + ' ' + name + ' ' + surname + '!');
+						    }
+
+						    greet('Hello', 'James', 'Bond'); // => 'Hello, James Bond!'
+
+						    // Fewer arguments than parameters
+						    greet('Hi', 'James'); // => 'Hi, James!'
+
+						    // More arguments than parameters
+						    greet('Hello', 'there', 'Mr.', 'Bond'); // => 'Hello there Mr.!'
+
+						    // Order matters!
+						    greet('Bond', 'James', 'Hi'); // => 'Bond James Hi !'
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Functions can define <i>default values</i> for their parameters:</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    function greetUser(greeting = 'Hi', user = 'James') {
+						    	console.log(greeting + ' ' + name + '!');
+						    }
+
+						    greetUser('Hello', 'Bond'); // => 'Hello, Bond!'
+
+						    greetUser(); // => 'Hi, James!'
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Any value type can be passed as an argument, including other functions!</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+						  <script type="text/template">
+						    ```javascript
+						    function reduce (numbers) {
+						    	let sum = 0;
+
+						    	for(var i = 0; i < numbers.length; i++) {
+						    		sum += numbers[i];
+						    	}
+
+						    	return sum;
+						    }
+
+						    console.log(reduce([1, 2, 3, 4, 5])); // => 15
+			        	```
+						  </script>
+						  <p style="text-align: left; margin: 40px 0 20px">
+								<small>Function exercises: <a href="https://codepen.io/KPouianou/pen/qxdqdK?editors=0010v">https://codepen.io/KPouianou/pen/qxdqdK?editors=0010</a></small>
+							</p>
+						</p>
+					</section>
+				</section>
+
+				<!-- 4: Objects -->
+				<section>
+					<section>
+						<h4>4.0 Advanced Data Types: Objects</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Values of the type <i>object</i> are collections of <i>properties</i>. Properties are associations between a <i>key</i> and a <i>value</i>. Object values can be of any type, including objects, arrays, or functions!</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    const user = {
+						    	name: 'James',
+						    	surname: 'Bond',
+						    	age: 72,
+						    	preferedFruit: ['bananas', 'oranges'],
+						    	address: {
+						    		city: 'London',
+						    		street: 'Albert Embankment',
+						    		number: '80'
+						    	},
+						    	getFullName: function () {
+						    		return 'James Bond';
+						    	}
+						    }
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>4.1 Property Accessors</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>We can easily access any object property, even <i>nested</i> ones, through the <i>dot notation</i> or the <i>bracket notation</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    console.log(user.name); // => 'James'
+						    console.log(user['name']); // => 'James'
+
+						    console.log(user.address.city); // => 'London'
+						    console.log(user['address']['city']); // => 'London'
+
+						    const fullUserName = user.getName();
+						    console.log(fullUserName); // => 'James Bond'
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>4.2 Adding new properties</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>We can use property accessors to add new attributes to an object, or change the value of existing one</i></small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    // Adding a new property
+						    user.email = 'james72@gmail.com';
+						    console.log(user.email); // => 'james72@gmail.com'
+
+						    // Changing an existing property
+						    user.name = 'Helen';
+						    console.log(user.name); // => 'Helen'
+			        	```
+						  </script>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Object exercises: <a href="https://codepen.io/KPouianou/pen/LQVWby?editors=0011">https://codepen.io/KPouianou/pen/LQVWby?editors=0011</a></small>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>5.0 Flow Control: Conditional Statements</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>A conditional <i>statement</i> is a set of commands that executes if a specified <i>condition</i> is true.</small>
+						</p>
+					</section>
+					<section>
+						<h4>5.1.1 Simple if...else statements</h4>
+						<p data-markdown style="text-align: start;">
+						<script type="text/template">
+					    ```javascript
+					    let color = 'yellow';
+
+					    if (color === 'yellow' || color === 'red') {
+					    	console.log('Wait');
+					    } else {
+					    	console.log('Cross the street');
+					    }
+
+					    // => 'Wait'
+		        	```
+					  </script>
+					</p>
+					</section>
+					<section>
+						<h4>5.1.2 Multiple conditions with if...else statements</h4>
+						<p data-markdown style="text-align: start;">
+						<script type="text/template">
+					    ```javascript
+					    if (color === 'green') {
+					    	console.log('Cross the street');
+					    } else if (color === 'yellow') {
+					    	console.log('Prepare to cross');
+					    } else {
+					    	console.log('Wait');
+					    }
+
+					    // => 'Prepare to cross'
+		        	```
+					  </script>
+					</p>
+					</section>
+					<section>
+						<h4>5.1.3 switch statements</h4>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    switch (color) {
+						    case 'green':
+						    	console.log('Cross the street');
+						    	break;
+						    case 'yellow':
+						    	console.log('Prepare to cross');
+						    	break;
+						    default:
+						    	console.log('Wait');
+						    }
+
+						    // => 'Prepare to cross'
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>5.1.4 switch statements: fall through</h4>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    switch (color) {
+						    case 'red':
+						    case 'yellow':
+						    	console.log('Wait');
+						    	break;
+						    default:
+						    	console.log('Cross the street');
+						    }
+
+						    // => 'Prepare to cross'
+			        	```
+						  </script>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Conditional statements exercises: <a href="https://codepen.io/KPouianou/pen/ZrGKqr?editors=0010">https://codepen.io/KPouianou/pen/ZrGKqr?editors=0010</a></small>
+						</p>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h4>6.0 Conventions & Terminology</h4>
+					</section>
+					<section>
+						<h4>6.1 Expressions & statements</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>
+								A fragment of code that produces a value is called an <i>expression</i>.
+								Every value that is written literally is called a <i>statement.</i>
+							</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    'statement' // => expression
+						    'statement'; // => statement (expression + semicolon)
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>6.2 Declaration vs assignment</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>
+								Variable <i>declaration</i> creates a new variable wich can be <i>assigned</i> a value. A variable cannot be declared multiple times, but it can be assigned a value more than one if it was declared with const, let, or var keywords.
+							</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    const  num = 1; // => 1-line declaration and assignment
+						    let color; // declaration
+						    color = 'red'; // assignment
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>6.3 Naming conventions</h4>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>
+								<ul>
+									<li>Variable names and object keys should be camel-cased</li>
+									<li>Variables should use nouns as names, and functions should use verbs</li>
+									<li>Variables with array values should use plural nouns, variables with object values should use singular nouns</li>
+									<li>Variable and function names should preferably be short but expressive</li>
+								</ul>
+							</small>
+						</p>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    const some_number = 'apple'; // BAD
+						    const fruits = 'apple'; // BAD
+						    const color = ['red', 'orange']; // BAD
+						    const Xyz = 33; // BAD
+
+						    const user = { // GOOD
+						    	preferredFruits: ['apple', 'orange'],
+						    	topFruit: 'apple'
+						    }
+			        	```
+						  </script>
+						</p>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
