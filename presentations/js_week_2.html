@@ -209,7 +209,7 @@
 					<section>
 						<h4>1.7.4 Comparison Operators</h4>
 						<p style="text-align: left; margin: 40px 0 20px">
-							<small>Less than (>): <i>True if the left operand is less than the right operand.</i></small>
+							<small>Less than (<): <i>True if the left operand is less than the right operand.</i></small>
 						</p>
 						<p data-markdown style="text-align: start;">
 						  <script type="text/template">
@@ -220,7 +220,7 @@
 						  </script>
 						</p>
 						<p style="text-align: left; margin: 40px 0 20px">
-							<small>Less than or equal (>=): <i>True if the left operand is less than or equal to the right operand</i></small>
+							<small>Less than or equal (<=): <i>True if the left operand is less than or equal to the right operand</i></small>
 						</p>
 						<p data-markdown  style="text-align: start;">
 							<script type="text/template">
@@ -320,7 +320,7 @@
 						  </script>
 						</p>
 						<p tyle="text-align: left; margin: 40px 0 20px">
-							<small>While loop exercises: <a href="https://codepen.io/KPouianou/pen/wyaGWa?editors=0011">https://codepen.io/KPouianou/pen/VQLaVo?editors=0010</a></small>
+							<small>While loop exercises: <a href="https://codepen.io/KPouianou/pen/VQLaVo">https://codepen.io/KPouianou/pen/VQLaVo</a></small>
 						</p>
 					</section>
 				</section>
@@ -366,8 +366,7 @@
 						    	console.log('Hello');
 						    }
 
-						    const greeting = greet();
-						    console.log(greeting); // => 'Hello'
+						    greet(); // => 'Hello'
 			        	```
 						  </script>
 						</p>
@@ -409,8 +408,8 @@
 						    }
 
 						    // 'add' is called with arguments 1, 2
-						    let three = add(1, 2);
-						    console.log(three);
+						    let sum = add(1, 2);
+						    console.log(sum);
 			        	```
 						  </script>
 						</p>
@@ -488,24 +487,40 @@
 				<!-- 4: Objects -->
 				<section>
 					<section>
-						<h4>4.0 Advanced Data Types: Objects</h4>
+						<h4>4.0.0 Advanced Data Types: Objects</h4>
 						<p style="text-align: left; margin: 40px 0 20px">
 							<small>Values of the type <i>object</i> are collections of <i>properties</i>. Properties are associations between a <i>key</i> and a <i>value</i>. Object values can be of any type, including objects, arrays, or functions!</small>
+						</p>
+						<p style="text-align: left; margin: 40px 0 20px">
+							<small>Here is a simple example of an object, with two attributes:</small>
 						</p>
 						<p data-markdown style="text-align: start;">
 							<script type="text/template">
 						    ```javascript
 						    const user = {
 						    	name: 'James',
+						    	surname: 'Bond'
+						    }
+			        	```
+						  </script>
+						</p>
+					</section>
+					<section>
+						<h4>4.0.1 A More Complex Object Example</h4>
+						<p data-markdown style="text-align: start;">
+							<script type="text/template">
+						    ```javascript
+						    const user = {
+						    	name: 'James', // => string
 						    	surname: 'Bond',
-						    	age: 72,
-						    	preferedFruit: ['bananas', 'oranges'],
-						    	address: {
+						    	age: 72, // => number
+						    	preferedFruit: ['bananas', 'oranges'], // => array
+						    	address: { // => nested object
 						    		city: 'London',
 						    		street: 'Albert Embankment',
 						    		number: '80'
 						    	},
-						    	getFullName: function () {
+						    	getFullName: function () { // => function
 						    		return 'James Bond';
 						    	}
 						    }
